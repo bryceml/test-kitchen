@@ -247,8 +247,6 @@ module Kitchen
     def exec_with_exit(cmd)
       exit_code = nil
       session.open_channel do |channel|
-        channel.request_pty
-
         channel.exec(cmd) do |_ch, _success|
           channel.on_data do |_ch, data|
             logger << data
